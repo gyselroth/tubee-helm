@@ -60,7 +60,7 @@ The following table lists the configurable parameters of the tubee sub charts an
 | `tubee.nameOverride`              | Override deployment name                                                  | `""`                                                |
 | `tubee.url`                       | The URL of tubee under which the server is reachable from outside       | `https://tubee.local`                             |
 | `tubee.image.repository`          | Image repository and name                                                 | `gyselroth/tubee`                                 |
-| `tubee.image.tag`                 | Image tag for the install container                                       | `2.6.7`                                             |
+| `tubee.image.tag`                 | Image tag for the install container                                       | `1.0.0-beta55`                                             |
 | `tubee.image.pullPolicy`          | Image pull policy for the init container that establishes the replica set | `IfNotPresent`                                      |
 | `tubee.service.type`              | Service Type                                                              | `ClusterIP`                                         |
 | `tubee.service.port`              | Service Port (tubee < v3 is executed using PHP-FPM)                     | `9000`                                              |
