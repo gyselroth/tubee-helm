@@ -37,7 +37,6 @@ helm install tubee-stable/tubee --name my-release --namespace mynamespace \
     --set tubee-proxy.ingress.enabled=true \
     --set tubee-proxy.ingress.host=tubee.local \
     --set tubee-proxy.ingress.tls[0].secretName=tls-tubee.local \
-    --set tubee.url=https://tubee.local \
     --set mongodb.persistentVolume.size=50Gi \
 ```
 
