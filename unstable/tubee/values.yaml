@@ -1,0 +1,15 @@
+mongodb:
+  install: true
+
+tubee:
+  tubee:
+    enabled: true
+    url: "https://tubee.local"
+  
+  tubee-jobs:
+    enabled: true
+  
+  tubee-proxy:
+    enabled: true
+    ingress:
+      enabled: false

@@ -1,0 +1,21 @@
+apiVersion: v1
+entries:
+  tubee:
+  - apiVersion: v1
+    appVersion: master
+    created: "2019-12-16T11:51:38.724858672+01:00"
+    description: Data management engine with synchronization support
+    digest: 507a020a519ad4ce938442cc383e857d8f80a0e687150c8ddf4af9ab34715420
+    home: https://github.com/gyselroth/tubee
+    keywords:
+    - tubee
+    maintainers:
+    - email: sahli@gyselroth.com
+      name: Raffael Sahli
+    name: tubee
+    sources:
+    - https://github.com/gyselroth/tubee-helm
+    urls:
+    - tubee-0.0.1.tgz
+    version: 0.0.1
+generated: "2019-12-16T11:51:38.723186003+01:00"

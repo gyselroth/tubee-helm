@@ -1,0 +1,14 @@
+apiVersion: v1
+name: tubee-proxy
+description: Nginx proxy for tubee php-fpm
+type: application
+version: 0.2.2
+appVersion: 3.2.8
+keywords:
+- tubee
+home: https://github.com/gyselroth/tubee
+sources:
+- https://github.com/gyselroth/tubee-helm
+maintainers:
+- name: Raffael Sahli
+  email: sahli@gyselroth.com

@@ -1,0 +1,8 @@
+# editorconfig.org
+root = true
+
+[{*.yaml,*.json,*.ym,*.dist}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
