@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "tubee-api.fullname" . }}
+  name: {{ include "tubee-mongodb-metrics.fullname" . }}
   labels:
-    app.kubernetes.io/name: {{ include "tubee-api.name" . }}
-    helm.sh/chart: {{ include "tubee-api.chart" . }}
+    app.kubernetes.io/name: {{ include "tubee-mongodb-metrics.name" . }}
+    helm.sh/chart: {{ include "tubee-mongodb-metrics.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- if .Values.extraLabels }}
@@ -14,12 +14,12 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "tubee-api.name" . }}
+      app.kubernetes.io/name: {{ include "tubee-mongodb-metrics.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "tubee-api.name" . }}
+        app.kubernetes.io/name: {{ include "tubee-mongodb-metrics.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
 {{- if .Values.extraLabels }}
 {{ toYaml .Values.extraLabels | indent 8 }}
@@ -30,7 +30,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-          - name: TUBEE_MONGODB_URI
+          - name: MDBEXPORTER_MONGODB_URI
           {{- if .Values.mongodbURI }}
             value: {{ .Values.mongodbURI }}
           {{- else }}
@@ -40,18 +40,18 @@ spec:
 {{ toYaml .Values.extraVars | indent 12 }}
 {{- end }}
           ports:
-            - name: php-fpm
-              containerPort: 9000
+            - name: exporter
+              containerPort: 9412
               protocol: TCP
           volumeMounts:
-          - mountPath: /etc/tubee
+          - mountPath: /root/.mongodb_query_exporter
             name: config-volume
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
       - configMap:
           defaultMode: 420
-          name: {{ .Release.Name }}-tubee-config
+          name: {{ .Release.Name }}-tubee-mongodb-metrics-config
         name: config-volume            
       {{- with .Values.nodeSelector }}
       nodeSelector:

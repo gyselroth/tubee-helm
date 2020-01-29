@@ -6,11 +6,21 @@ replicaCount: 2
 
 image:
   repository: gyselroth/tubee
-  tag: 1.0.0-beta57
+  tag: 1.0.0-beta61
   pullPolicy: IfNotPresent
 
 nameOverride: ""
 fullnameOverride: ""
+
+hpa:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 50
+  metricName: tubee_processes_queued
+  objectName: tubee-staging-tubee-mongodb-metrics
+  averageValue: 2
+
+mongodbURI: null
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

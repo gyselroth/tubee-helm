@@ -13,20 +13,19 @@ metadata:
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
-  {{- end }}
+  {{- end }}  
 spec:
-{{- if .Values.ingress.tls }}
   tls:
-  {{- range .Values.ingress.tls }}
-    - hosts:
-      {{- range .hosts }}
-        - {{ . | quote }}
-      {{- end }}
-      secretName: {{ .secretName }}
-  {{- end }}
+{{- range .Values.ingress.hosts }}
+{{- if .tls }}
+  - hosts:
+    - {{ .name }}
+    secretName: {{ .tls.secretName }}
 {{- end }}
+{{- end }}  
   rules:
-    - host: {{ .Values.ingress.host | quote }}
+  {{- range .Values.ingress.hosts }}    
+    - host: {{ .name }}
       http:
         paths:
           - path: "/api"
@@ -37,4 +36,5 @@ spec:
             backend:
               serviceName: {{ $fullName }}
               servicePort: http
+  {{- end }}
 {{- end }}

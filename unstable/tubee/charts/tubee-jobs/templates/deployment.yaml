@@ -35,7 +35,11 @@ spec:
           - -vvvv
           env:
           - name: TUBEE_MONGODB_URI
+          {{- if .Values.mongodbURI }}
+            value: {{ .Values.mongodbURI }}
+          {{- else }}
             value: mongodb://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-1.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-2.{{ .Release.Name }}-mongodb:27017
+          {{- end }}
 {{- if .Values.extraVars }}
 {{ toYaml .Values.extraVars | indent 12 }}
 {{- end }}
