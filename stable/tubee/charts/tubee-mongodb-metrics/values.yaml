@@ -6,7 +6,6 @@ replicaCount: 1
 
 image:
   repository: raffis/mongodb-query-exporter
-  tag: 1.0.0-beta1
   pullPolicy: IfNotPresent
 
 nameOverride: ""
