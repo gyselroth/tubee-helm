@@ -3,7 +3,31 @@ entries:
   tubee:
   - apiVersion: v1
     appVersion: master
-    created: "2020-01-29T14:00:25.156243958+01:00"
+    created: "2020-11-10T16:47:31.732887+01:00"
+    dependencies:
+    - alias: mongodb
+      condition: mongodb.install
+      name: mongodb-replicaset
+      repository: https://kubernetes-charts.storage.googleapis.com/
+      version: 3.11.3
+    description: Data management engine with synchronization support
+    digest: 74079557034f3aaf702f811bf8ec1a3d219b0f1775cab2f2a4f625f01eecf5e3
+    home: https://github.com/gyselroth/tubee
+    keywords:
+    - tubee
+    maintainers:
+    - email: sahli@gyselroth.com
+      name: Raffael Sahli
+    name: tubee
+    sources:
+    - https://github.com/gyselroth/tubee-helm
+    type: application
+    urls:
+    - tubee-0.0.6.tgz
+    version: 0.0.6
+  - apiVersion: v1
+    appVersion: master
+    created: "2020-11-10T16:47:31.729438+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -27,7 +51,7 @@ entries:
     version: 0.0.5
   - apiVersion: v1
     appVersion: master
-    created: "2020-01-29T14:00:25.153385483+01:00"
+    created: "2020-11-10T16:47:31.725053+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -50,7 +74,7 @@ entries:
     version: 0.0.3
   - apiVersion: v1
     appVersion: master
-    created: "2020-01-29T14:00:25.151093401+01:00"
+    created: "2020-11-10T16:47:31.720027+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -73,7 +97,7 @@ entries:
     version: 0.0.2
   - apiVersion: v1
     appVersion: master
-    created: "2020-01-29T14:00:25.147224258+01:00"
+    created: "2020-11-10T16:47:31.717116+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -94,4 +118,4 @@ entries:
     urls:
     - tubee-0.0.1.tgz
     version: 0.0.1
-generated: "2020-01-29T14:00:25.144650043+01:00"
+generated: "2020-11-10T16:47:31.711916+01:00"
