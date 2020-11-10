@@ -1,0 +1,33 @@
+{{- if .Values.hpa.enabled -}}
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ include "tubee-jobs.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "tubee-jobs.name" . }}
+    helm.sh/chart: {{ include "tubee-jobs.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- if .Values.extraLabels }}
+{{ toYaml .Values.extraLabels | indent 4 }}
+{{- end }}        
+spec:
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: {{ include "tubee-jobs.fullname" . }}
+  minReplicas: {{ .Values.hpa.minReplicas }}
+  maxReplicas: {{ .Values.hpa.maxReplicas }}
+  metrics:
+  - type: Object
+    object:
+      metric:
+        name: tubee_processes_queued
+      describedObject:
+        apiVersion: v1
+        kind: Service
+        name: tubee-staging-tubee-mongodb-metrics
+      target:
+        type: AverageValue
+        averageValue: 2
+{{- end }}        
