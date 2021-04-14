@@ -1,5 +1,10 @@
 apiVersion: v1
 kind: ConfigMap
+{{- if .Files.Get "config/config.yaml" }}
+data:
+  config.yaml: |-
+  {{ .Files.Get "config/config.yaml" | indent 2}}
+{{- end }}
 metadata:
   name: {{ .Release.Name }}-tubee-config
   labels:
