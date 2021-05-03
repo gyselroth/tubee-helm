@@ -3,15 +3,15 @@ entries:
   tubee:
   - apiVersion: v1
     appVersion: master
-    created: "2021-04-30T14:58:58.49722+02:00"
+    created: "2021-05-03T14:10:40.848366+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
       name: mongodb-replicaset
-      repository: https://kubernetes-charts.storage.googleapis.com/
-      version: 3.11.3
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.10.3
     description: Data management engine with synchronization support
-    digest: 9e0cc784ccbd17574312234c4c28733fec61d97885e94ea1b3a78a4716e0e392
+    digest: 5108df030f29c3f23517936b1b7f601a0176172cefb9637d53864f390c9fb3db
     home: https://github.com/gyselroth/tubee
     keywords:
     - tubee
@@ -27,7 +27,7 @@ entries:
     version: 0.0.8
   - apiVersion: v1
     appVersion: master
-    created: "2021-04-30T14:58:58.493625+02:00"
+    created: "2021-05-03T14:10:40.846101+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -51,7 +51,7 @@ entries:
     version: 0.0.7
   - apiVersion: v1
     appVersion: master
-    created: "2021-04-30T14:58:58.490419+02:00"
+    created: "2021-05-03T14:10:40.842666+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -75,7 +75,7 @@ entries:
     version: 0.0.6
   - apiVersion: v1
     appVersion: master
-    created: "2021-04-30T14:58:58.487593+02:00"
+    created: "2021-05-03T14:10:40.838794+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -99,7 +99,7 @@ entries:
     version: 0.0.5
   - apiVersion: v1
     appVersion: master
-    created: "2021-04-30T14:58:58.480069+02:00"
+    created: "2021-05-03T14:10:40.834866+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -122,7 +122,7 @@ entries:
     version: 0.0.3
   - apiVersion: v1
     appVersion: master
-    created: "2021-04-30T14:58:58.477055+02:00"
+    created: "2021-05-03T14:10:40.8319+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -145,7 +145,7 @@ entries:
     version: 0.0.2
   - apiVersion: v1
     appVersion: master
-    created: "2021-04-30T14:58:58.474584+02:00"
+    created: "2021-05-03T14:10:40.829036+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -166,4 +166,4 @@ entries:
     urls:
     - tubee-0.0.1.tgz
     version: 0.0.1
-generated: "2021-04-30T14:58:58.470894+02:00"
+generated: "2021-05-03T14:10:40.825309+02:00"
