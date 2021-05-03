@@ -1,5 +1,6 @@
 mongodb:
   install: true
+  architecture: replicaset
 
 tubee:
   tubee:
