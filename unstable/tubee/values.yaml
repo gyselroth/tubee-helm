@@ -1,6 +1,7 @@
 mongodb:
   install: true
   architecture: replicaset
+  useStatefulSet: true
 
 tubee:
   tubee:
