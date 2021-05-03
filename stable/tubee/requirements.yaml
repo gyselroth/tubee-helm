@@ -1,6 +1,5 @@
 dependencies:
-- name: mongodb-replicaset
+- name: mongodb
   version: 10.10.3 # 4.4.4
   repository: https://charts.bitnami.com/bitnami
   condition: mongodb.install
-  alias: mongodb
