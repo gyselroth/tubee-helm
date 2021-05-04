@@ -3,7 +3,7 @@ name: tubee-proxy
 description: Nginx proxy for tubee php-fpm
 type: application
 version: 0.2.3
-appVersion: 1.0.0
+appVersion: 1.0.1
 keywords:
 - tubee
 home: https://github.com/gyselroth/tubee

@@ -33,14 +33,18 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
+          {{- if .Values.livenessProbe.enabled }}
           livenessProbe:
             httpGet:
               path: /healthz
               port: http
+          {{- end }}
+          {{- if .Values.readinessProbe.enabled }}
           readinessProbe:
             httpGet:
               path: /healthz
               port: http
+          {{- end }}
           volumeMounts:
           - mountPath: /etc/nginx/conf.d
             name: nginx

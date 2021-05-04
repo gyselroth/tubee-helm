@@ -19,6 +19,12 @@ tubee-api:
 nginx:
   fastcgi_read_timeout: 300
 
+livenessProbe:
+  enabled: false
+
+readinessProbe:
+  enabled: false
+
 service:
   type: ClusterIP
   port: 80
