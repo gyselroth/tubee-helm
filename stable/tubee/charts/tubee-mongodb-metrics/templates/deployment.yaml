@@ -7,9 +7,9 @@ metadata:
     helm.sh/chart: {{ include "tubee-mongodb-metrics.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
-{{- if .Values.extraLabels }}
-{{ toYaml .Values.extraLabels | indent 4 }}
-{{- end }}
+  {{- if .Values.extraLabels }}
+  {{ toYaml .Values.extraLabels | indent 4 }}
+  {{- end }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -23,46 +23,46 @@ spec:
         app.kubernetes.io/instance: {{ .Release.Name }}
 {{- if .Values.extraLabels }}
 {{ toYaml .Values.extraLabels | indent 8 }}
-{{- end }}        
+{{- end }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-          - name: MDBEXPORTER_MONGODB_URI
-          {{- if .Values.mongodbURI }}
-            value: {{ .Values.mongodbURI }}
-          {{- else }}
-            value: mongodb://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-1.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-2.{{ .Release.Name }}-mongodb:27017
-          {{- end }}
+            - name: MDBEXPORTER_MONGODB_URI
+            {{- if .Values.mongodbURI }}
+              value: {{ .Values.mongodbURI }}
+            {{- else }}
+              value: mongodb://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-1.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-2.{{ .Release.Name }}-mongodb:27017
+            {{- end }}
 {{- if .Values.extraVars }}
 {{ toYaml .Values.extraVars | indent 12 }}
 {{- end }}
           ports:
-            - name: exporter
-              containerPort: 9412
-              protocol: TCP
+           - name: exporter
+             containerPort: 9412
+             protocol: TCP
           volumeMounts:
-          - mountPath: /etc/mongodb-query-exporter/config.yaml
-            subPath: config.yaml
-            name: config-volume
+            - mountPath: /etc/mongodb-query-exporter/config.yaml
+              subPath: config.yaml
+              name: config-volume
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
-      - configMap:
-          defaultMode: 420
-          name: {{ .Release.Name }}-tubee-mongodb-metrics-config
-        name: config-volume            
-      {{- with .Values.nodeSelector }}
+        - configMap:
+            defaultMode: 420
+            name: {{ .Release.Name }}-tubee-mongodb-metrics-config
+          name: config-volume
+        {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
-      {{- end }}
-    {{- with .Values.affinity }}
+        {{- end }}
+        {{- with .Values.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
-    {{- end }}
-    {{- with .Values.tolerations }}
+        {{- end }}
+        {{- with .Values.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
-    {{- end }}
+        {{- end }}
