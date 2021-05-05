@@ -30,24 +30,28 @@ spec:
     spec:
       restartPolicy: Never
       initContainers:
-      - name: wait-for-mongodb
-        image: jwilder/dockerize
-        command:
-        - dockerize 
-        - -timeout
-        - 120s
-        - -wait 
-        - tcp://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017
+        - name: wait-for-mongodb
+          image: jwilder/dockerize
+          command:
+          - dockerize
+          - -timeout
+          - 120s
+          - -wait
+          - tcp://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017
       containers:
-      - name: tubee-api
-        image:  "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-        command: 
-        - tubeecli
-        - upgrade
-        - -vvvv
+        - name: tubee-api
+          image:  "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          command:
+            - tubeecli
+            - upgrade
+            - -vvvv
         env:
-        - name: TUBEE_MONGODB_URI
-          value: mongodb://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-1.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-2.{{ .Release.Name }}-mongodb:27017
+          - name: TUBEE_MONGODB_URI
+            {{- if .Values.mongodbURI }}
+            value: {{ .Values.mongodbURI }}
+            {{- else }}
+            value: mongodb://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-1.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-2.{{ .Release.Name }}-mongodb:27017
+            {{- end }}
 {{- if .Values.extraVars }}
 {{ toYaml .Values.extraVars | indent 8 }}
 {{- end }}          
