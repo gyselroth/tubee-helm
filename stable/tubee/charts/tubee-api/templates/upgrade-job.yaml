@@ -37,7 +37,7 @@ spec:
           - -timeout
           - 120s
           - -wait
-          - tcp://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017
+          - tcp://{{ .Release.Name }}-mongodb-headless:27017
       containers:
         - name: tubee-api
           image:  "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
