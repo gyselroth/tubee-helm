@@ -49,6 +49,6 @@ spec:
         - name: TUBEE_MONGODB_URI
           value: mongodb://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-1.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-2.{{ .Release.Name }}-mongodb:27017
 {{- if .Values.extraVars }}
-{{ toYaml .Values.extraVars | indent 8 }}
+{{ toYaml .Values.extraVars | indent 12 }}
 {{- end }}          
   backoffLimit: 4
