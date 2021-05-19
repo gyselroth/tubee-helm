@@ -3,7 +3,7 @@ name: tubee-mongodb-metrics
 description: Provides overall tubee metrics using data from MongoDB
 type: application
 version: 1.0.2
-appVersion: 1.0.0-beta4
+appVersion: 1.0.0-beta7
 keywords:
 - tubee
 home: https://github.com/gyselroth/tubee

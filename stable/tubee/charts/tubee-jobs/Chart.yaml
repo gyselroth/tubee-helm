@@ -3,7 +3,7 @@ name: tubee-jobs
 description: tubee jobs runner
 type: application
 version: 1.0.2
-appVersion: 1.0.0-beta67
+appVersion: 1.0.0-beta68
 keywords:
 - tubee
 home: https://github.com/gyselroth/tubee
