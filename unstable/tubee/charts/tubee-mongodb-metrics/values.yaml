@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: raffis/mongodb-query-exporter
-  tag: 1.0.0-beta1
+  tag: prometheus-mongodb-query-exporter-1.1.3
   pullPolicy: IfNotPresent
 
 nameOverride: ""
