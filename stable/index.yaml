@@ -3,7 +3,7 @@ entries:
   tubee:
   - apiVersion: v1
     appVersion: master
-    created: "2021-09-14T15:43:00.52692+02:00"
+    created: "2021-11-12T16:39:17.533748+01:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -26,7 +26,7 @@ entries:
     version: 1.0.10
   - apiVersion: v1
     appVersion: master
-    created: "2021-09-14T15:43:00.569367+02:00"
+    created: "2021-11-12T16:39:17.57988+01:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -49,7 +49,7 @@ entries:
     version: 1.0.9
   - apiVersion: v1
     appVersion: master
-    created: "2021-09-14T15:43:00.561806+02:00"
+    created: "2021-11-12T16:39:17.573598+01:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -72,7 +72,7 @@ entries:
     version: 1.0.8
   - apiVersion: v1
     appVersion: master
-    created: "2021-09-14T15:43:00.556253+02:00"
+    created: "2021-11-12T16:39:17.566823+01:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -95,7 +95,7 @@ entries:
     version: 1.0.7
   - apiVersion: v1
     appVersion: master
-    created: "2021-09-14T15:43:00.548725+02:00"
+    created: "2021-11-12T16:39:17.559681+01:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -118,7 +118,7 @@ entries:
     version: 1.0.6
   - apiVersion: v1
     appVersion: master
-    created: "2021-09-14T15:43:00.542509+02:00"
+    created: "2021-11-12T16:39:17.552591+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -142,7 +142,7 @@ entries:
     version: 1.0.5
   - apiVersion: v1
     appVersion: master
-    created: "2021-09-14T15:43:00.536796+02:00"
+    created: "2021-11-12T16:39:17.546165+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -166,7 +166,7 @@ entries:
     version: 1.0.4
   - apiVersion: v1
     appVersion: master
-    created: "2021-09-14T15:43:00.532302+02:00"
+    created: "2021-11-12T16:39:17.54088+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -190,7 +190,7 @@ entries:
     version: 1.0.3
   - apiVersion: v1
     appVersion: master
-    created: "2021-09-14T15:43:00.529686+02:00"
+    created: "2021-11-12T16:39:17.537538+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -214,7 +214,7 @@ entries:
     version: 1.0.2
   - apiVersion: v1
     appVersion: master
-    created: "2021-09-14T15:43:00.520598+02:00"
+    created: "2021-11-12T16:39:17.52473+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -238,7 +238,7 @@ entries:
     version: 1.0.1
   - apiVersion: v1
     appVersion: master
-    created: "2021-09-14T15:43:00.517368+02:00"
+    created: "2021-11-12T16:39:17.521654+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -260,4 +260,4 @@ entries:
     urls:
     - tubee-1.0.0.tgz
     version: 1.0.0
-generated: "2021-09-14T15:43:00.511562+02:00"
+generated: "2021-11-12T16:39:17.51825+01:00"
