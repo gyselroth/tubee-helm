@@ -16,7 +16,7 @@ hpa:
   minReplicas: 1
   maxReplicas: 50
   metricName: tubee_processes_queued
-  objectName: tubee-staging-tubee-mongodb-metrics
+  objectName: tubee-stage-tubee-mongodb-metrics
   averageValue: 2
 
 mongodbURI: null

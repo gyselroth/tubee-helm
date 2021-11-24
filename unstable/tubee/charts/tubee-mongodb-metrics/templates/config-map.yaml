@@ -21,7 +21,7 @@ data:
       realtime: true
       labels: [type,status]
       database: tubee
-      collection: taskscheduler.jobs
+      collection: taskscheduler
       pipeline: |
         [
           {"$group": {

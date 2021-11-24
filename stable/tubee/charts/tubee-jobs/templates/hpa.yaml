@@ -26,7 +26,7 @@ spec:
       describedObject:
         apiVersion: v1
         kind: Service
-        name: tubee-staging-tubee-mongodb-metrics
+        name: tubee-stage-tubee-mongodb-metrics
       target:
         type: AverageValue
         averageValue: 2
