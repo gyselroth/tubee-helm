@@ -32,7 +32,7 @@ spec:
           command:
             - tubeecli
             - jobs
-            - -vvvv
+            - -v
           env:
             - name: TUBEE_MONGODB_URI
             {{- if .Values.mongodbURI }}

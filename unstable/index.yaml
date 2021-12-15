@@ -3,7 +3,30 @@ entries:
   tubee:
   - apiVersion: v1
     appVersion: master
-    created: "2021-12-14T14:36:10.966709+01:00"
+    created: "2021-12-15T10:01:00.798326+01:00"
+    dependencies:
+    - condition: mongodb.install
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.10.3
+    description: Data management engine with synchronization support
+    digest: 0643a7fe654c1f645bf7e1a6362083a2703a29c5c4a9e6a251cc8fb6379b3368
+    home: https://github.com/gyselroth/tubee
+    keywords:
+    - tubee
+    maintainers:
+    - email: sahli@gyselroth.com
+      name: Raffael Sahli
+    name: tubee
+    sources:
+    - https://github.com/gyselroth/tubee-helm
+    type: application
+    urls:
+    - tubee-0.0.18.tgz
+    version: 0.0.18
+  - apiVersion: v1
+    appVersion: master
+    created: "2021-12-15T10:01:00.792391+01:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -26,7 +49,7 @@ entries:
     version: 0.0.17
   - apiVersion: v1
     appVersion: master
-    created: "2021-12-14T14:36:10.960364+01:00"
+    created: "2021-12-15T10:01:00.787208+01:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -49,7 +72,7 @@ entries:
     version: 0.0.16
   - apiVersion: v1
     appVersion: master
-    created: "2021-12-14T14:36:10.954447+01:00"
+    created: "2021-12-15T10:01:00.779968+01:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -70,27 +93,4 @@ entries:
     urls:
     - tubee-0.0.15.tgz
     version: 0.0.15
-  - apiVersion: v1
-    appVersion: master
-    created: "2021-12-14T14:36:10.947577+01:00"
-    dependencies:
-    - condition: mongodb.install
-      name: mongodb
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.10.3
-    description: Data management engine with synchronization support
-    digest: 07586950f3ac500f89c27383282d585f5922aa5be89f712c08630499050247e0
-    home: https://github.com/gyselroth/tubee
-    keywords:
-    - tubee
-    maintainers:
-    - email: sahli@gyselroth.com
-      name: Raffael Sahli
-    name: tubee
-    sources:
-    - https://github.com/gyselroth/tubee-helm
-    type: application
-    urls:
-    - tubee-0.0.14.tgz
-    version: 0.0.14
-generated: "2021-12-14T14:36:10.941456+01:00"
+generated: "2021-12-15T10:01:00.773425+01:00"

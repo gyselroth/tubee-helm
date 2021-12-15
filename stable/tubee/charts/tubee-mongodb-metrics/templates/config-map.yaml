@@ -47,3 +47,94 @@ data:
               }}
           }}
         ]    
+    - name: tubee_jobs_total
+      type: gauge
+      help: 'The total number of jobs in the queue labeled by their process status'
+      value: total
+      cacheTime: 5
+      realtime: true
+      labels: [name,namespace]
+      database: tubee
+      collection: jobs
+      pipeline: |
+        [{
+            "$match": {
+                "data.active": true
+            }
+        }, {
+            "$lookup": {
+                "from": "taskscheduler",
+                "let": {
+                    "name": "$name",
+                    "namespace": "$namespace"
+                },
+                "as": "procs",
+                "pipeline": [{
+                    "$match": {
+                        "parent": {
+                            "$exists": false
+                        },
+                        "$expr": {
+                            "$and": [{
+                                "$eq": ["$data.namespace", "$$namespace"]
+                            }, {
+                                "$eq": ["$data.job", "$$name"]
+                            }]
+                        }
+                    }
+                }, {
+                    "$sort": {
+                        "created": -1
+                    }
+                }, {
+                    "$match": {
+                        "status": {
+                            "$lt": 3
+                        }
+                    }
+                }]
+            }
+        }, {
+            "$project": {
+                "name": 1,
+                "namespace": 1,
+                "procs": {
+                    "$size": "$procs"
+                }
+            }
+        }, {
+            "$group": {
+                "_id": {
+                    "namespace": "$namespace",
+                    "name": "$name"
+                },
+                "total": {
+                    "$sum": "$procs"
+                }
+            }
+        },
+        {"$project":{
+            "_id":0,
+            "namespace":"$_id.namespace",
+            "name":"$_id.name",
+            "total":"$total"
+        }}]
+    - name: tubee_processes_queued
+      type: gauge
+      help: 'The total number of jobs in the queue'
+      value: total
+      labels: [total]
+      mode: pull
+      interval: 10
+      constLabels: []
+      database: tubee
+      collection: taskscheduler
+      pipeline: |
+        [
+          {
+            "$match": {
+              "status": {"$lt":2}
+            }
+          },
+          {"$count": "total"}
+        ]
