@@ -138,7 +138,7 @@ data:
       type: gauge
       help: 'The total number of processes in the queue'
       value: total
-      labels: [total]
+      labels: []
       mode: push
       interval: 10
       constLabels: []
