@@ -12,6 +12,21 @@ metadata:
 {{- end }}
 data:
   config.yaml: |
+    version: 2.0
+    bind: 0.0.0.0:9412
+    metricsPath: /metrics
+    log:
+      encoding: json
+      level: {ENV(MDBEXPORTER_LOG_LEVEL,info)}
+      development: false
+      disableCaller: false
+    global:
+      queryTimeout: 10
+      maxConnection: 3
+      defaultCache: 5
+    servers:
+    - name: main
+      uri: {ENV(MDBEXPORTER_MONGODB_URI,mongodb://localhost:27017)}
     metrics:
     - name: tubee_processes_total
       type: gauge
