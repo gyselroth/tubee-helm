@@ -121,10 +121,10 @@ data:
         }}]
     - name: tubee_processes_queued
       type: gauge
-      help: 'The total number of jobs in the queue'
+      help: 'The total number of processes in the queue'
       value: total
       labels: [total]
-      mode: pull
+      mode: push
       interval: 10
       constLabels: []
       database: tubee

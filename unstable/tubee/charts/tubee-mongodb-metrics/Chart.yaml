@@ -2,7 +2,7 @@ apiVersion: v1
 name: tubee-mongodb-metrics
 description: Provides overall tubee metrics using data from MongoDB
 type: application
-version: 0.0.4
+version: 0.0.5
 appVersion: 1.0.0-beta4
 keywords:
 - tubee
