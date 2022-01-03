@@ -1,0 +1,27 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: tubee-keda
+spec:
+  scaleTargetRef:
+    name: {{ .Values.scaledObject.scaleTarget.name }}
+
+  pollingInterval: {{ .Values.scaledObject.pollingInterval }}
+  cooldownPeriod: {{ .Values.scaledObject.cooldownPeriod }}
+  minReplicaCount: {{ .Values.scaledObject.minReplicaCount }}
+  maxReplicaCount: {{ .Values.scaledObject.maxReplicaCount }}
+  triggers:
+    - type: mongodb
+      metadata:
+        {{- if .Values.mongodbURI }}
+        connectionStringFromEnv: {{ .Values.mongodbURI }}
+        {{- else }}
+        connectionStringFromEnv: mongodb://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-1.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-2.{{ .Release.Name }}-mongodb:27017
+        {{- end }}
+        dbName: {{ .Values.scaledObject.dbName }}
+        collection: {{ .Values.scaledObject.collection }}
+        queryValue: {{ .Values.scaledObject.queryValue }}
+        metricName: {{ .Values.scaledObject.metricName }}
+        query: {{ .Values.scaledObject.query }}
+#      authenticationRef:
+#        name: mongodb-trigger
