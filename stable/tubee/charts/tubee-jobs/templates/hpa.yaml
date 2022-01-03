@@ -18,16 +18,16 @@ spec:
     name: {{ include "tubee-jobs.fullname" . }}
   minReplicas: {{ .Values.hpa.minReplicas }}
   maxReplicas: {{ .Values.hpa.maxReplicas }}
-  metrics:
-  - type: Object
-    object:
-      metric:
-        name: tubee_processes_queued
-      describedObject:
-        apiVersion: v1
-        kind: Service
-        name: tubee-stage-tubee-mongodb-metrics
-      target:
-        type: AverageValue
-        averageValue: 2
+#  metrics:
+#  - type: Object
+#    object:
+#      metric:
+#        name: tubee_processes_queued
+#      describedObject:
+#        apiVersion: v1
+#        kind: Service
+#        name: tubee-stage-tubee-mongodb-metrics
+#      target:
+#        type: AverageValue
+#        averageValue: 2
 {{- end }}        

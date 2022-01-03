@@ -11,13 +11,13 @@ image:
 nameOverride: ""
 fullnameOverride: ""
 
-hpa:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 50
-  metricName: tubee_processes_queued
-  objectName: tubee-stage-tubee-mongodb-metrics
-  averageValue: 2
+#hpa:
+#  enabled: false
+#  minReplicas: 1
+#  maxReplicas: 50
+#  metricName: tubee_processes_queued
+#  objectName: tubee-stage-tubee-mongodb-metrics
+#  averageValue: 2
 
 mongodbURI: null
 
