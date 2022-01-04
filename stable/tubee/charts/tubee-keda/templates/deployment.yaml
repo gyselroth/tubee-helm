@@ -7,9 +7,9 @@ metadata:
     helm.sh/chart: {{ include "tubee-keda.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
-  {{- if .Values.extraLabels }}
-  {{ toYaml .Values.extraLabels | indent 4 }}
-  {{- end }}
+{{- if .Values.extraLabels }}
+{{ toYaml .Values.extraLabels | indent 4 }}
+{{- end }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -31,14 +31,14 @@ spec:
           imagePullPolicy: {{ .Values.image.keda.pullPolicy }}
           env:
             - name: TUBEE_MONGODB_URI
-              {{- if .Values.mongodbURI }}
+            {{- if .Values.mongodbURI }}
               value: {{ .Values.mongodbURI }}
-              {{- else }}
+            {{- else }}
               value: mongodb://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-1.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-2.{{ .Release.Name }}-mongodb:27017
-              {{- end }}
-  {{- if .Values.extraVars }}
-  {{ toYaml .Values.extraVars | indent 12 }}
-  {{- end }}
+            {{- end }}
+{{- if .Values.extraVars }}
+{{ toYaml .Values.extraVars | indent 12 }}
+{{- end }}
           ports:
             - name: php-fpm
               containerPort: 9000
