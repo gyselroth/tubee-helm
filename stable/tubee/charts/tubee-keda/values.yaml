@@ -15,7 +15,7 @@ image:
     tag:
   pullPolicy: IfNotPresent
 
-mongodbURI: "mongodb://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-1.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-2.{{ .Release.Name }}-mongodb:27017"
+mongodbURI: null
 scaledObject:
   scaleTarget:
     name: "tubee-stage-tubee-jobs"
@@ -30,8 +30,10 @@ scaledObject:
     collection: "taskscheduler"
     queryValue: "1"
     metricName: "global-metric"
-    query:  |
+    query: |
       '{"status":{"$lt":2}}'
+
+extraVars: {}
 
 #crds:
 #  install: true
