@@ -18,7 +18,7 @@ image:
 mongodbURI: null
 scaledObject:
   scaleTarget:
-    name: null
+    name: "tubee-stage-tubee-jobs"
 
   pollingInterval: 30
   cooldownPeriod: 30
@@ -26,10 +26,12 @@ scaledObject:
   maxReplicaCount: 15
 
   trigger:
-    dbName: ""
-    collection: ""
-    queryValue: ""
-    metricName: ""
+    dbName: "tubee"
+    collection: "taskscheduler"
+    queryValue: "1"
+    metricName: "global-metric"
+    query:  |
+      '{"status":{"$lt":2}}'
 
 #crds:
 #  install: true

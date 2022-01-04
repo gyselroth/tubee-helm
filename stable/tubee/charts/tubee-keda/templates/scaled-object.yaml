@@ -18,10 +18,10 @@ spec:
         {{- else }}
         connectionStringFromEnv: mongodb://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-1.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-2.{{ .Release.Name }}-mongodb:27017
         {{- end }}
-        dbName: {{ .Values.scaledObject.dbName }}
-        collection: {{ .Values.scaledObject.collection }}
-        queryValue: {{ .Values.scaledObject.queryValue }}
-        metricName: {{ .Values.scaledObject.metricName }}
-        query: {{ .Values.scaledObject.query }}
+        dbName: {{ .Values.scaledObject.trigger.dbName }}
+        collection: {{ .Values.scaledObject.trigger.collection }}
+        queryValue: {{ .Values.scaledObject.trigger.queryValue }}
+        metricName: {{ .Values.scaledObject.trigger.metricName }}
+        query: {{ .Values.scaledObject.trigger.query }}
 #      authenticationRef:
 #        name: mongodb-trigger
