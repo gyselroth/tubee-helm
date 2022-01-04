@@ -27,8 +27,8 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: "{{ .Values.image.keda.repository }}:{{ .Values.image.keda.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.keda.pullPolicy }}
           env:
             - name: TUBEE_MONGODB_URI
               {{- if .Values.mongodbURI }}
