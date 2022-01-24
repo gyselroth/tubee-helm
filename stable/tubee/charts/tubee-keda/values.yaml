@@ -6,9 +6,9 @@ replicaCount: 1
 
 image:
   keda:
-    repository: ghcr.io/kedacore/keda
+    repository: kedacore/keda
     # Allows people to override tag if they don't want to use the app version
-    tag: v2.5.1
+    tag: 2.5.0
   metricsApiServer:
     repository: ghcr.io/kedacore/keda-metrics-apiserver
     # Allows people to override tag if they don't want to use the app version
