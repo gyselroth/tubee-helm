@@ -33,7 +33,7 @@ scaledObject:
     query: |
       '{"status":{"$lt":2}}'
 
-watchNamespace: ""
+watchNamespace: "tubee-stage"
 
 extraVars: {}
 
