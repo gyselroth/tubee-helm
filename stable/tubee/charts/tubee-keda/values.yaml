@@ -39,6 +39,21 @@ operator:
   name: keda-operator
   replicaCount: 1
 
+logging:
+  operator:
+    ## Logging level for KEDA Operator
+    # allowed values: 'debug', 'info', 'error', or an integer value greater than 0, specified as string
+    # default value: info
+    level: debug
+    # allowed valuesL 'json' or 'console'
+    # default value: console
+    format: console
+  metricServer:
+    ## Logging level for Metrics Server
+    # allowed values: '0' for info, '4' for debug, or an integer value greater than 0, specified as string
+    # default value: 0
+    level: '4'
+
 extraVars: {}
 
 #crds:
@@ -96,20 +111,6 @@ extraVars: {}
 ## will be mounted to the /vault path on the Pod
 #hashiCorpVaultTLS: ""
 #
-#logging:
-#  operator:
-#    ## Logging level for KEDA Operator
-#    # allowed values: 'debug', 'info', 'error', or an integer value greater than 0, specified as string
-#    # default value: info
-#    level: info
-#    # allowed valuesL 'json' or 'console'
-#    # default value: console
-#    format: console
-#  metricServer:
-#    ## Logging level for Metrics Server
-#    # allowed values: '0' for info, '4' for debug, or an integer value greater than 0, specified as string
-#    # default value: 0
-#    level: 0
 #
 #podSecurityContext: {}
 ## fsGroup: 2000
