@@ -3,7 +3,9 @@ kind: Service
 metadata:
   labels:
     app.kubernetes.io/name: {{ .Values.operator.name }}-metrics-apiserver
-    {{- include "keda.labels" . | indent 4 }}
+{{- if .Values.extraLabels }}
+{{ toYaml .Values.extraLabels | indent 4 }}
+{{- end }}
   name: {{ .Values.operator.name }}-metrics-apiserver
   namespace: {{ .Release.Namespace }}
   annotations:

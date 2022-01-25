@@ -7,7 +7,9 @@ metadata:
     app: {{ .Values.operator.name }}
     name: {{ .Values.operator.name }}
     app.kubernetes.io/name: {{ .Values.operator.name }}
-    {{- include "keda.labels" . | indent 4 }}
+{{- if .Values.extraLabels }}
+{{ toYaml .Values.extraLabels | indent 4 }}
+{{- end }}
 spec:
   replicas: {{ .Values.operator.replicaCount}}
   selector:
@@ -19,7 +21,9 @@ spec:
         app: {{ .Values.operator.name }}
         name: {{ .Values.operator.name }}
         app.kubernetes.io/name: {{ .Values.operator.name }}
-        {{- include "keda.labels" . | indent 8 }}
+{{- if .Values.extraLabels }}
+{{ toYaml .Values.extraLabels | indent 8 }}
+{{- end }}
         {{- if .Values.podIdentity.activeDirectory.identity }}
         aadpodidbinding: {{ .Values.podIdentity.activeDirectory.identity }}
         {{- end }}

@@ -4,7 +4,9 @@ kind: ClusterRole
 metadata:
   labels:
     app.kubernetes.io/name: {{ .Values.operator.name }}-external-metrics-reader
-    {{- include "keda.labels" . | indent 4 }}
+{{- if .Values.extraLabels }}
+{{ toYaml .Values.extraLabels | indent 4 }}
+{{- end }}
   creationTimestamp: null
   name: {{ .Values.operator.name }}-external-metrics-reader
 rules:

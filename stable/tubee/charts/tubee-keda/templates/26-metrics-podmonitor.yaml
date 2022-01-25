@@ -5,7 +5,9 @@ metadata:
   name: {{ .Values.operator.name }}-metrics-apiserver
   labels:
     app.kubernetes.io/name: {{ .Values.operator.name }}
-    {{- include "keda.labels" . | indent 4 }}
+{{- if .Values.extraLabels }}
+{{ toYaml .Values.extraLabels | indent 4 }}
+{{- end }}
     {{- range $key, $value := .Values.prometheus.metricServer.podMonitor.additionalLabels }}
     {{ $key }}: {{ $value | quote }}
     {{- end }}

@@ -6,7 +6,9 @@ metadata:
   name: {{ .Values.operator.name }}-metrics-apiserver
   labels:
     app.kubernetes.io/name: {{ .Values.operator.name }}-metrics-apiserver
-    {{- include "keda.labels" . | indent 4 }}
+{{- if .Values.extraLabels }}
+{{ toYaml .Values.extraLabels | indent 4 }}
+{{- end }}
 spec:
   {{- if .Values.podDisruptionBudget.minAvailable }}
   minAvailable: {{ .Values.podDisruptionBudget.minAvailable }}
