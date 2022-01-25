@@ -10,9 +10,9 @@ image:
     # Allows people to override tag if they don't want to use the app version
     tag: 2.5.0
   metricsApiServer:
-    repository: ghcr.io/kedacore/keda-metrics-apiserver
+    repository: kedacore/keda-metrics-apiserver
     # Allows people to override tag if they don't want to use the app version
-    tag:
+    tag: 2.5.0
   pullPolicy: IfNotPresent
 
 mongodbURI: null
@@ -35,15 +35,16 @@ scaledObject:
 
 watchNamespace: ""
 
+operator:
+  name: keda-operator
+  replicaCount: 1
+
 extraVars: {}
 
 #crds:
 #  install: true
 #
 #imagePullSecrets: []
-#operator:
-#  name: keda-operator
-#  replicaCount: 1
 #
 #metricsServer:
 #  # use ClusterFirstWithHostNet if `useHostNetwork: true` https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy
