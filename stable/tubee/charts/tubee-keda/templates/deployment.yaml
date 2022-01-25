@@ -4,21 +4,26 @@ metadata:
   name: {{ include "tubee-keda.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
-    app: {{ .Values.tubee-keda.name }}
-    name: {{ .Values.tubee-keda.name }}
-    app.kubernetes.io/name: {{ .Values.tubee-keda.name }}
+    app: {{ .Values.operator.name }}
+    name: {{ .Values.operator.name }}
+    app.kubernetes.io/name: {{ .Values.operator.name }}
+  {{- if .Values.extraLabels }}
+  {{ toYaml .Values.extraLabels | indent 4 }}
+  {{- end }}
 spec:
-  replicas: {{ .Values.tubee-keda.replicaCount}}
+  replicas: {{ .Values.replicaCount}}
   selector:
     matchLabels:
-      app: {{ .Values.tubee-keda.name }}
+      app: {{ .Values.operator.name }}
   template:
     metadata:
       labels:
-        app: {{ .Values.tubee-keda.name }}
-        name: {{ .Values.tubee-keda.name }}
-        app.kubernetes.io/name: {{ .Values.tubee-keda.name }}
-        {{- include "keda.labels" . | indent 8 }}
+        app: {{ .Values.operator.name }}
+        name: {{ .Values.operator.name }}
+        app.kubernetes.io/name: {{ .Values.operator.name }}
+{{- if .Values.extraLabels }}
+{{ toYaml .Values.extraLabels | indent 8 }}
+{{- end }}
         {{- if .Values.podIdentity.activeDirectory.identity }}
         aadpodidbinding: {{ .Values.podIdentity.activeDirectory.identity }}
         {{- end }}
@@ -41,7 +46,7 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Values.tubee-keda.name }}
+        - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.keda.repository }}:{{ .Values.image.keda.tag | default .Chart.AppVersion }}"
@@ -67,6 +72,12 @@ spec:
               name: http
               protocol: TCP
           env:
+            - name: TUBEE_MONGODB_URI
+            {{- if .Values.mongodbURI }}
+            value: {{ .Values.mongodbURI }}
+            {{- else }}
+            value: mongodb://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-1.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-2.{{ .Release.Name }}-mongodb:27017
+            {{- end }}
             - name: WATCH_NAMESPACE
               value: {{ .Values.watchNamespace | quote }}
             - name: POD_NAME
@@ -74,7 +85,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: OPERATOR_NAME
-              value: {{ .Values.tubee-keda.name }}
+              value: {{ .Values.operator.name }}
             {{- if .Values.http.timeout }}
             - name: KEDA_HTTP_DEFAULT_TIMEOUT
               value: {{ .Values.http.timeout | quote }}
