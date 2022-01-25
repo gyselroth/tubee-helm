@@ -1,24 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.operator.name }}
+  name: {{ include "tubee-keda.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
-    app: {{ .Values.operator.name }}
-    name: {{ .Values.operator.name }}
-    app.kubernetes.io/name: {{ .Values.operator.name }}
-    {{- include "keda.labels" . | indent 4 }}
+    app: {{ .Values.tubee-keda.name }}
+    name: {{ .Values.tubee-keda.name }}
+    app.kubernetes.io/name: {{ .Values.tubee-keda.name }}
 spec:
-  replicas: {{ .Values.operator.replicaCount}}
+  replicas: {{ .Values.tubee-keda.replicaCount}}
   selector:
     matchLabels:
-      app: {{ .Values.operator.name }}
+      app: {{ .Values.tubee-keda.name }}
   template:
     metadata:
       labels:
-        app: {{ .Values.operator.name }}
-        name: {{ .Values.operator.name }}
-        app.kubernetes.io/name: {{ .Values.operator.name }}
+        app: {{ .Values.tubee-keda.name }}
+        name: {{ .Values.tubee-keda.name }}
+        app.kubernetes.io/name: {{ .Values.tubee-keda.name }}
         {{- include "keda.labels" . | indent 8 }}
         {{- if .Values.podIdentity.activeDirectory.identity }}
         aadpodidbinding: {{ .Values.podIdentity.activeDirectory.identity }}
@@ -42,7 +41,7 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Values.operator.name }}
+        - name: {{ .Values.tubee-keda.name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.keda.repository }}:{{ .Values.image.keda.tag | default .Chart.AppVersion }}"
@@ -75,7 +74,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: OPERATOR_NAME
-              value: {{ .Values.operator.name }}
+              value: {{ .Values.tubee-keda.name }}
             {{- if .Values.http.timeout }}
             - name: KEDA_HTTP_DEFAULT_TIMEOUT
               value: {{ .Values.http.timeout | quote }}
