@@ -1,0 +1,9 @@
+apiVersion: keda.sh/v1alpha1
+kind: TriggerAuthentication
+metadata:
+  name: mongodb-trigger
+spec:
+  secretTargetRef:
+    - parameter: connectionString
+      name: mongodb-params-uri
+      key: mongodb
