@@ -53,7 +53,7 @@ spec:
           command:
             - "/keda"
           args:
-            - "--leader-elect"
+            - --leader-elec
             - "--zap-log-level={{ .Values.logging.operator.level }}"
             - "--zap-encoder={{ .Values.logging.operator.format }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
@@ -73,11 +73,11 @@ spec:
               protocol: TCP
           env:
             - name: TUBEE_MONGODB_URI
-            {{- if .Values.mongodbURI }}
-            value: {{ .Values.mongodbURI }}
-            {{- else }}
-            value: mongodb://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-1.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-2.{{ .Release.Name }}-mongodb:27017
-            {{- end }}
+              {{- if .Values.mongodbURI }}
+              value: {{ .Values.mongodbURI }}
+              {{- else }}
+              value: mongodb://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-1.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-2.{{ .Release.Name }}-mongodb:27017
+              {{- end }}
             - name: WATCH_NAMESPACE
               value: {{ .Values.watchNamespace | quote }}
             - name: POD_NAME
