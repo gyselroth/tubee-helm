@@ -3,14 +3,14 @@ entries:
   tubee:
   - apiVersion: v1
     appVersion: master
-    created: "2022-03-21T08:51:58.703848+01:00"
+    created: "2022-03-21T09:26:53.262701+01:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
       repository: https://charts.bitnami.com/bitnami
       version: 10.10.3
     description: Data management engine with synchronization support
-    digest: 8db746b047414e8a97453653123f4664964264240f9206d676be79605bac879d
+    digest: ce519097928a0f6825969bf99f70cd1e24990bf852bc57302e1f3d397351a6fc
     home: https://github.com/gyselroth/tubee
     keywords:
     - tubee
@@ -26,7 +26,7 @@ entries:
     version: 1.0.28
   - apiVersion: v1
     appVersion: master
-    created: "2022-03-21T08:51:58.697561+01:00"
+    created: "2022-03-21T09:26:53.257271+01:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -49,7 +49,7 @@ entries:
     version: 1.0.27
   - apiVersion: v1
     appVersion: master
-    created: "2022-03-21T08:51:58.688592+01:00"
+    created: "2022-03-21T09:26:53.250426+01:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -72,7 +72,7 @@ entries:
     version: 1.0.26
   - apiVersion: v1
     appVersion: master
-    created: "2022-03-21T08:51:58.682712+01:00"
+    created: "2022-03-21T09:26:53.24421+01:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -95,7 +95,7 @@ entries:
     version: 1.0.25
   - apiVersion: v1
     appVersion: master
-    created: "2022-03-21T08:51:58.67401+01:00"
+    created: "2022-03-21T09:26:53.236314+01:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -118,7 +118,7 @@ entries:
     version: 1.0.24
   - apiVersion: v1
     appVersion: master
-    created: "2022-03-21T08:51:58.668753+01:00"
+    created: "2022-03-21T09:26:53.230384+01:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -139,4 +139,4 @@ entries:
     urls:
     - tubee-1.0.23.tgz
     version: 1.0.23
-generated: "2022-03-21T08:51:58.66072+01:00"
+generated: "2022-03-21T09:26:53.22118+01:00"
