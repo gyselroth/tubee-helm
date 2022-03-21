@@ -57,7 +57,7 @@ logging:
 extraVars: {}
 
 crds:
-  install: true
+  install: false
 
 imagePullSecrets: []
 
