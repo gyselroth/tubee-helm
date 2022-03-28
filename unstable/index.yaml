@@ -3,14 +3,37 @@ entries:
   tubee:
   - apiVersion: v1
     appVersion: master
-    created: "2022-03-28T10:11:11.041568+02:00"
+    created: "2022-03-28T11:30:16.377191+02:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
       repository: https://charts.bitnami.com/bitnami
       version: 10.10.3
     description: Data management engine with synchronization support
-    digest: 90bd2c4276fcd6264cfe3b18eef6fd5ba00342dc62d702564891a6d14c77304f
+    digest: 8a007bc6250bdcda784e98e7347776316c989dd94e424e24d59d785c78e23040
+    home: https://github.com/gyselroth/tubee
+    keywords:
+    - tubee
+    maintainers:
+    - email: aebischer@gyselroth.com
+      name: Sandro Aebischer
+    name: tubee
+    sources:
+    - https://github.com/gyselroth/tubee-helm
+    type: application
+    urls:
+    - tubee-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v1
+    appVersion: master
+    created: "2022-03-28T11:30:16.371087+02:00"
+    dependencies:
+    - condition: mongodb.install
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.10.3
+    description: Data management engine with synchronization support
+    digest: c5c15241da6bd60b3d92ac2fb9fab54f6be5c29d722348b50f0a6661b72531df
     home: https://github.com/gyselroth/tubee
     keywords:
     - tubee
@@ -24,4 +47,4 @@ entries:
     urls:
     - tubee-0.0.1.tgz
     version: 0.0.1
-generated: "2022-03-28T10:11:11.027925+02:00"
+generated: "2022-03-28T11:30:16.362162+02:00"
