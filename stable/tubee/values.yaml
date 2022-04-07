@@ -15,6 +15,3 @@ tubee:
     enabled: true
     ingress:
       enabled: false
-
-  tubee-keda:
-    enabled: false
