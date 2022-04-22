@@ -4,6 +4,8 @@ mongodb:
   useStatefulSet: true
   global:
     storageClass: "ssd"
+  arbiter:
+    enabled: false
 
 tubee:
   tubee:
