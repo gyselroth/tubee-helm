@@ -1,7 +1,9 @@
 mongodb:
   install: true
-  architecture: replicaset
+  architecture: "replicaset"
   useStatefulSet: true
+  global:
+    storageClass: "ssd"
 
 tubee:
   tubee:
