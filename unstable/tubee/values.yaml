@@ -1,6 +1,6 @@
 mongodb:
   install: true
-  architecture: "standalone"
+  architecture: "replicaset"
   useStatefulSet: true
   global:
     storageClass: "ssd"
