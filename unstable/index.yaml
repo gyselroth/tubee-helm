@@ -3,7 +3,30 @@ entries:
   tubee:
   - apiVersion: v1
     appVersion: master
-    created: "2022-05-17T15:37:59.948336+02:00"
+    created: "2022-05-25T16:33:35.231347+02:00"
+    dependencies:
+    - condition: mongodb.install
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.10.3
+    description: Data management engine with synchronization support
+    digest: 7537bde70d22c0f8db39441470d3810c850d3b95e9681854635bc65fb1833e47
+    home: https://github.com/gyselroth/tubee
+    keywords:
+    - tubee
+    maintainers:
+    - email: aebischer@gyselroth.com
+      name: Sandro Aebischer
+    name: tubee
+    sources:
+    - https://github.com/gyselroth/tubee-helm
+    type: application
+    urls:
+    - tubee-0.0.16.tgz
+    version: 0.0.16
+  - apiVersion: v1
+    appVersion: master
+    created: "2022-05-25T16:33:35.224259+02:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -24,27 +47,4 @@ entries:
     urls:
     - tubee-0.0.15.tgz
     version: 0.0.15
-  - apiVersion: v1
-    appVersion: master
-    created: "2022-05-17T15:37:59.942825+02:00"
-    dependencies:
-    - condition: mongodb.install
-      name: mongodb
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.10.3
-    description: Data management engine with synchronization support
-    digest: d97bef3cb54fed39e3ad3356c2acbceda2aa8dde5d8c2cb616cb94b4d8f81210
-    home: https://github.com/gyselroth/tubee
-    keywords:
-    - tubee
-    maintainers:
-    - email: aebischer@gyselroth.com
-      name: Sandro Aebischer
-    name: tubee
-    sources:
-    - https://github.com/gyselroth/tubee-helm
-    type: application
-    urls:
-    - tubee-0.0.14.tgz
-    version: 0.0.14
-generated: "2022-05-17T15:37:59.934477+02:00"
+generated: "2022-05-25T16:33:35.214162+02:00"
