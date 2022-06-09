@@ -2,7 +2,7 @@ apiVersion: v1
 name: tubee-jobs
 description: tubee jobs runner
 type: application
-version: 1.0.4
+version: 1.0.5
 appVersion: 2.0.1
 keywords:
 - tubee
