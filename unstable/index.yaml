@@ -3,7 +3,30 @@ entries:
   tubee:
   - apiVersion: v1
     appVersion: master
-    created: "2022-11-25T16:39:33.697286+01:00"
+    created: "2022-12-02T16:23:16.397531+01:00"
+    dependencies:
+    - condition: mongodb.install
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.10.3
+    description: Data management engine with synchronization support
+    digest: abeedbe831b2f072a11a3b337c3f7623f1ab6923cf117e89d29d56015bb8f497
+    home: https://github.com/gyselroth/tubee
+    keywords:
+    - tubee
+    maintainers:
+    - email: aebischer@gyselroth.com
+      name: Sandro Aebischer
+    name: tubee
+    sources:
+    - https://github.com/gyselroth/tubee-helm
+    type: application
+    urls:
+    - tubee-0.0.35.tgz
+    version: 0.0.35
+  - apiVersion: v1
+    appVersion: master
+    created: "2022-12-02T16:23:16.390845+01:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -26,30 +49,7 @@ entries:
     version: 0.0.34
   - apiVersion: v1
     appVersion: master
-    created: "2022-11-25T16:39:33.691922+01:00"
-    dependencies:
-    - condition: mongodb.install
-      name: mongodb
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.10.3
-    description: Data management engine with synchronization support
-    digest: 73fac37f6fb0922e64ca811da4acf878f0b0c7b00f05b5d8258a274cc45302d3
-    home: https://github.com/gyselroth/tubee
-    keywords:
-    - tubee
-    maintainers:
-    - email: aebischer@gyselroth.com
-      name: Sandro Aebischer
-    name: tubee
-    sources:
-    - https://github.com/gyselroth/tubee-helm
-    type: application
-    urls:
-    - tubee-0.0.33.tgz
-    version: 0.0.33
-  - apiVersion: v1
-    appVersion: master
-    created: "2022-11-25T16:39:33.686356+01:00"
+    created: "2022-12-02T16:23:16.384235+01:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -70,4 +70,4 @@ entries:
     urls:
     - tubee-0.0.32.tgz
     version: 0.0.32
-generated: "2022-11-25T16:39:33.677087+01:00"
+generated: "2022-12-02T16:23:16.37415+01:00"
