@@ -2,8 +2,8 @@ apiVersion: v1
 name: tubee-jobs
 description: tubee jobs runner
 type: application
-version: 0.0.38
-appVersion: 2.3.2
+version: 0.0.39
+appVersion: 2.4.0
 keywords:
 - tubee
 home: https://github.com/gyselroth/tubee
