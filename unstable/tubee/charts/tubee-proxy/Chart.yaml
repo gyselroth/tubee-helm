@@ -2,7 +2,7 @@ apiVersion: v1
 name: tubee-proxy
 description: Nginx proxy for tubee php-fpm
 type: application
-version: 0.0.2
+version: 0.0.3
 appVersion: 1-alpine
 keywords:
 - tubee
