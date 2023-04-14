@@ -29,14 +29,14 @@ spec:
       http:
         paths:
           - path: "/api"
-            pathType: {{ .pathType }}
+            pathType: Prefix
             backend:
               service:
                 name: {{ $fullName }}
                 port:
                   name: http
           - path: "/openapi"
-            pathType: {{ .pathType }}
+            pathType: Prefix
             backend:
               service:
                 name: {{ $fullName }}
