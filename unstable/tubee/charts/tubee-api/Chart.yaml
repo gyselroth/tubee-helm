@@ -2,8 +2,8 @@ apiVersion: v1
 name: tubee-api
 description: Data management engine with synchronization support
 type: application
-version: 0.0.45
-appVersion: 2.4.4
+version: 0.0.46
+appVersion: 2.5.0
 keywords:
 - tubee
 home: https://github.com/gyselroth/tubee
