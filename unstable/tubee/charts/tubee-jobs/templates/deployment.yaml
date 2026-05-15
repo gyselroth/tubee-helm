@@ -46,6 +46,9 @@ spec:
           volumeMounts:
             - mountPath: /etc/tubee
               name: config-volume
+            - mountPath: /usr/local/etc/php/conf.d/php-memory-limit.ini
+              name: tubee-php-memory
+              subPath: php-memory-limit.ini
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
@@ -53,6 +56,10 @@ spec:
              defaultMode: 420
              name: {{ .Release.Name }}-tubee-config
            name: config-volume
+         - configMap:
+             defaultMode: 420
+             name: {{ .Release.Name }}-tubee-php-memory
+           name: tubee-php-memory
          {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
