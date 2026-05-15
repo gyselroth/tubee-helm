@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+data:
+  php-memory-limit.ini: memory_limit = {{ .Values.phpMemory }};
+metadata:
+  name: {{ .Release.Name }}-tubee-php-memory
+  labels:
+    app.kubernetes.io/name: {{ include "tubee-api.name" . }}
+    helm.sh/chart: {{ include "tubee-api.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
