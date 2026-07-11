@@ -3,7 +3,30 @@ entries:
   tubee:
   - apiVersion: v1
     appVersion: master
-    created: "2026-05-15T15:50:38.140907+02:00"
+    created: "2026-07-12T00:57:15.53973+02:00"
+    dependencies:
+    - condition: mongodb.install
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.10.3
+    description: Data management engine with synchronization support
+    digest: 20ac10f84214d9474eec483399eda16137ff15b2d34484d4e0996ed19e14f21c
+    home: https://github.com/gyselroth/tubee
+    keywords:
+    - tubee
+    maintainers:
+    - email: aebischer@gyselroth.com
+      name: Sandro Aebischer
+    name: tubee
+    sources:
+    - https://github.com/gyselroth/tubee-helm
+    type: application
+    urls:
+    - tubee-1.0.40.tgz
+    version: 1.0.40
+  - apiVersion: v1
+    appVersion: master
+    created: "2026-07-12T00:57:15.537279+02:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -26,7 +49,7 @@ entries:
     version: 1.0.39
   - apiVersion: v1
     appVersion: master
-    created: "2026-05-15T15:50:38.138574+02:00"
+    created: "2026-07-12T00:57:15.534598+02:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -49,7 +72,7 @@ entries:
     version: 1.0.38
   - apiVersion: v1
     appVersion: master
-    created: "2026-05-15T15:50:38.135766+02:00"
+    created: "2026-07-12T00:57:15.531818+02:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -72,7 +95,7 @@ entries:
     version: 1.0.37
   - apiVersion: v1
     appVersion: master
-    created: "2026-05-15T15:50:38.132899+02:00"
+    created: "2026-07-12T00:57:15.529409+02:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -95,7 +118,7 @@ entries:
     version: 1.0.36
   - apiVersion: v1
     appVersion: master
-    created: "2026-05-15T15:50:38.130083+02:00"
+    created: "2026-07-12T00:57:15.526459+02:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -118,7 +141,7 @@ entries:
     version: 1.0.35
   - apiVersion: v1
     appVersion: master
-    created: "2026-05-15T15:50:38.12756+02:00"
+    created: "2026-07-12T00:57:15.523517+02:00"
     dependencies:
     - condition: mongodb.install
       name: mongodb
@@ -139,4 +162,4 @@ entries:
     urls:
     - tubee-1.0.34.tgz
     version: 1.0.34
-generated: "2026-05-15T15:50:38.12338+02:00"
+generated: "2026-07-12T00:57:15.520002+02:00"
